@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -18,14 +19,12 @@ public class TravelController {
         return new ResponseEntity<User>(information, HttpStatus.OK);
     }
 
-    @GetMapping("/travels") 
+    @GetMapping("/travels")
     public ResponseEntity<List<Travel>> getTravels(@RequestParam String userName) {
         Travel travel1 = new Travel("Caribbean", (float) 32.4);
         Travel travel2 = new Travel("Australia", (float) 35.1);
 
-        List<Travel> travels = new ArrayList<>();
-        travels.add(travel1);
-        travels.add(travel2);
+        List<Travel> travels = Arrays.asList(travel1, travel2);
 
         return new ResponseEntity<List<Travel>>(travels, HttpStatus.OK);
     }

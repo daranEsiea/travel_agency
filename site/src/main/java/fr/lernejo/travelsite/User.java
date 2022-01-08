@@ -30,7 +30,6 @@ public class User {
 
     public boolean isValidInscription() {
         String regex = "^(.+)@(.+)$";
-        //Compile regular expression to get the pattern
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.userEmail); // check si c'est un mail
         if (
@@ -46,5 +45,4 @@ public class User {
             return false;
         }
     }
-
 }
